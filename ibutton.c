@@ -69,7 +69,7 @@ int try_open_ibutton(char *name) {
 		return -1;
 	}
 
-	if (strcmp("Generic USB K/B", device_name)) {
+	if (strcmp("IBL IBL USB iButton reader", device_name)) {
 		verbose(warnx("device did not identify as ibutton reader (got: \"%s\")", device_name));
 		return -1;
 	}

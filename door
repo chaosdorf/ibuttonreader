@@ -1,0 +1,11 @@
+#!/bin/sh
+while true; do
+	while read; do
+		if [ -e "whitelist/$REPLY" ]; then
+			echo open dat door
+		else
+			sleep 3
+			echo ROFLCOPTER GTFO
+		fi
+	done
+done
