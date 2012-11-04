@@ -1,6 +1,6 @@
 #!/bin/sh
 while true; do
-	while read; do
+	while read REPLY; do
 		if [ -e "whitelist/$REPLY" ]; then
 			echo open dat door
 		else
