@@ -1,11 +1,11 @@
 #!/bin/sh
 while true; do
 	while read REPLY; do
-		if [ -e "whitelist/$REPLY" ]; then
-			echo open dat door
+		if [ -f "/root/authorized_ibuttons/$REPLY" ]; then
+			/bin/opendoor.py
 		else
 			sleep 3
-			echo ROFLCOPTER GTFO
+			echo "$REPLY" > /tmp/last_failed_ibutton
 		fi
 	done
 done
