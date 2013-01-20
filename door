@@ -1,11 +1,13 @@
 #!/bin/sh
-while true; do
-	while read REPLY; do
-		if [ -f "/root/authorized_ibuttons/$REPLY" ]; then
-			/bin/opendoor.py
-		else
-			sleep 3
-			echo "$REPLY" > /tmp/last_failed_ibutton
-		fi
-	done
+# ibutton.c may die e.g. in case of USB resets. It is recommended to use
+# monitoring / a cronjob to restart ./ibutton | ./door if one of them is no
+# longer running
+
+while read REPLY; do
+	if [ -f "/root/authorized_ibuttons/$REPLY" ]; then
+		/usr/local/bin/opendoor.py
+	else
+		sleep 3
+		echo "$REPLY" > /tmp/last_failed_ibutton
+	fi
 done
